@@ -1,0 +1,49 @@
+import requests
+
+# Function to validate phone number using NumVerify API
+def validate_phone_number(phone_number, api_key):
+    url = f'http://apilayer.net/api/validate?access_key={api_key}&number={phone_number}&country_code=&format=1'
+    response = requests.get(url)
+    data = response.json()
+    if data['valid']:
+        return True
+    else:
+        return False
+
+# Function to get location coordinates using Google Maps Geocoding API
+def get_location_coordinates(address, api_key):
+    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}'
+    response = requests.get(url)
+    data = response.json()
+    if data['status'] == 'OK':
+        location = data['results'][0]['geometry']['location']
+        latitude = location['lat']
+        longitude = location['lng']
+        return latitude, longitude
+    else:
+        return None, None
+
+# Main function
+def main():
+    # Phone number to track
+    phone_number = input("+91-7742148084: ")
+    # API key for NumVerify
+    numeric_api_key = "PU8Mwf5D9UFxqS9RlKtPtUmnCETRxtWa"
+    # API key for Google Maps Geocoding
+    google_api_key = "AIzaSyDc2apI-2Thc8CocGNmL0-e2A"
+
+    # Validate phone number
+    if validate_phone_number(phone_number, numeric_api_key):
+        print("Phone number is valid.")
+        address = input("Enter the address associated with the phone number: ")
+        # Get location coordinates
+        latitude, longitude = get_location_coordinates(address, google_api_key)
+        if latitude is not None and longitude is not None:
+            print(f"Location coordinates for the provided address: Latitude: {latitude}, Longitude: {longitude}")
+        else:
+            print("Failed to get location coordinates for the provided address.")
+    else:
+        print("Invalid phone number.")
+
+if __name__ == "__main__":
+    main()

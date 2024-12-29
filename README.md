@@ -1,4 +1,4 @@
-# get_location_coordinatesSure, 
+# get_location_coordinates, 
 
 ```
 # Phone Number Tracker

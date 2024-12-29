@@ -1,4 +1,4 @@
-# -get_location_coordinatesSure, here's a README file for your code:
+# get_location_coordinatesSure, 
 
 ```
 # Phone Number Tracker
@@ -37,7 +37,7 @@ You will be prompted to enter the phone number you want to track. Once you enter
 ## Example
 
 ```
-+91-7742148084: +91-7742148084
++91************: +91-*************
 Phone number is valid.
 Enter the address associated with the phone number: New York City
 Location coordinates for the provided address: Latitude: 40.7127753, Longitude: -74.0059728
@@ -51,5 +51,3 @@ If you have any suggestions or improvements, feel free to open an issue or creat
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ``` 
-
-Make sure to include this README file along with your code repository.
